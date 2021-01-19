@@ -1,0 +1,28 @@
+{
+  "name": "a4_w1_nodeandnpn",
+  "version": "1.0.0",
+  "description": "nodenpm",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Hello from Node!\"",
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/echechulina/A4_W1_NodeAndNPN.git"
+  },
+  "keywords": [
+    "node",
+    "npm"
+  ],
+  "author": "ELN",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "mysql": "^2.18.1",
+    "underscore": "^1.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
