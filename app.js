@@ -1,4 +1,5 @@
 const http = require('http'); // like a PHP require
+const stream = require('fs');
 
 //require is more or less the same as a JS import
 
@@ -7,8 +8,36 @@ const port = process.env.PORT || 3000; // localhost:3000
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('8 days until the end of the World');
+  res.setHeader('Content-Type', 'text/html');
+
+  let url = req.url; // i.e. localhost:3000/contact
+
+  switch (url) {
+    case "/contact":
+      stream.readFile('contact.html', null, ((err, data) => {
+        if (err) {
+          res.writeHead(404);
+          res.write('404 not found');
+        } else {
+          res.write(data);
+        }
+      }))
+    break;
+
+    case "/portfolio":
+      stream.readFile('portfolio.html', null, ((err, data) => {
+        if (err) {
+          res.writeHead(404);
+          res.write('404 not found');
+        } else {
+          res.write(data);
+        }
+      }))
+    break;
+
+    default:
+      res.end('8 days until the end of the World'); // serve up a custom page 
+  }
 });
 
 server.listen(port, () => {
